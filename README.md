@@ -44,7 +44,6 @@ isl-gesture-recognition/
 │   ├── landmarks_preprocess.py    # Preprocess + augment + split data
 │   ├── train_model.py             # Train Random Forest with tuning & CV
 │   ├── realtime_prediction.py     # Real-time webcam prediction
-│   └── analyze_model.py           # Detailed model analysis
 │
 ├── datasets/                      # Raw gesture images (not uploaded)
 ├── csv/                           # Extracted landmarks + npy files
@@ -94,7 +93,7 @@ Each image is converted into a **128-dimensional feature vector**:
 ### **1. Clone the Repository**
 
 ```bash
-git clone https://github.com/<your-username>/isl-gesture-recognition.git
+git clone https://github.com/KhevanaVasani28/isl-gesture-recognition.git
 cd isl-gesture-recognition
 ```
 
@@ -176,7 +175,6 @@ After training, the following files are generated inside `results/`:
 
 - `rf_classification_report.txt` — Precision, recall, F1-score per class
 - `rf_confusion_matrix.png` — Visual confusion matrix
-- `feature_importance.png` — Top 20 most important features
 
 ---
 
@@ -217,9 +215,9 @@ Contributions are welcome! Feel free to:
 
 ## 👤 Author
 
-**<Your Name>**
-- GitHub: [@<your-username>](https://github.com/<your-username>)
-- Email: <your.email@example.com>
+**Khevana Vasani**
+- GitHub: https://github.com/KhevanaVasani28
+- Email: khevanavasani@gmail.com
 
 ---
 
