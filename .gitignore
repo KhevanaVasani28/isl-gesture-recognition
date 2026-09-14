@@ -1,0 +1,115 @@
+# ==========================================================
+# Python
+# ==========================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.conda/
+
+# ==========================================================
+# IDE / Editor
+# ==========================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ==========================================================
+# Jupyter Notebooks
+# ==========================================================
+.ipynb_checkpoints/
+*.ipynb
+
+# ==========================================================
+# Dataset (large image files — do NOT upload)
+# ==========================================================
+datasets/*
+!datasets/.gitkeep
+
+# Also ignore any stray image files anywhere in the project
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+
+# BUT keep images inside results/ (for demo screenshots/GIFs)
+!results/*.png
+!results/*.jpg
+!results/*.jpeg
+!results/*.gif
+
+# ==========================================================
+# Extracted CSVs and NumPy arrays
+# ==========================================================
+csv/*
+!csv/.gitkeep
+
+# Any stray CSV/NPY/NPZ files in the project
+*.csv
+*.npy
+*.npz
+
+# ==========================================================
+# Trained Models
+# ==========================================================
+models/*
+!models/.gitkeep
+
+# Pickle files (label encoder, model, etc.)
+*.pkl
+*.h5
+*.joblib
+
+# ==========================================================
+# Results (keep folder, ignore generated outputs unless whitelisted)
+# ==========================================================
+results/*
+!results/.gitkeep
+!results/*.png
+!results/*.jpg
+!results/*.jpeg
+!results/*.gif
+
+# ==========================================================
+# OS-specific
+# ==========================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==========================================================
+# Logs and temporary files
+# ==========================================================
+*.log
+*.tmp
+*.bak
+*.cache
+
+# ==========================================================
+# Secrets / local config (in case you add any later)
+# ==========================================================
+.env
+.env.local
+secrets.json
