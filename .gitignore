@@ -113,3 +113,5 @@ desktop.ini
 .env
 .env.local
 secrets.json
+
+!.gitkeep
