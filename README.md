@@ -5,7 +5,6 @@ An AI-powered system that recognizes Indian Sign Language gestures (Aâ€“Z and 0â
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10+-green.svg)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ---
 
