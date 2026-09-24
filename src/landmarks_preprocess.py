@@ -160,60 +160,60 @@ print("\nApplying Data Augmentation...")
 X = df.drop("label", axis=1)
 y = df["label"]
 
-augmented_X = []
-augmented_y = []
-
 # Convert to numpy for faster processing
 X_np = X.to_numpy(dtype=np.float32)
 y_np = y.to_numpy(dtype=np.int64)
 
+# 1) Split ORIGINAL data first
+X_train, X_test, y_train, y_test = train_test_split(
+    X_np, y_np,
+    test_size=0.2,
+    random_state=42,
+    stratify=y_np
+)
+
+print(f"Original Train: {X_train.shape}")
+print(f"Original Test:  {X_test.shape}")
+
+# 2) Augment ONLY the training set
+# print("\nAugmenting training set only...")
+
+X_train_aug = []
+y_train_aug = []
+
 # Apply augmentation with progress bar
 for i in tqdm(range(len(X_np))):
-    features = X_np[i]
-    label = y_np[i]
+    features = X_train[i]
+    label = y_train[i]
     
-    # Always keep original sample
-    augmented_X.append(features)
-    augmented_y.append(label)
+   # Keep original
+    X_train_aug.append(features)
+    y_train_aug.append(label)
     
     # Generate augmented samples
     aug_samples = augment_landmarks(features, label, augmentation_factor=2)
     for aug_features, aug_label in aug_samples:
-        augmented_X.append(aug_features)
-        augmented_y.append(aug_label)
+        X_train_aug.append(aug_features)
+        y_train_aug.append(aug_label)
 
-# Convert to numpy arrays
-augmented_X_np = np.array(augmented_X, dtype=np.float32)
-augmented_y_np = np.array(augmented_y, dtype=np.int64)
+X_train_aug = np.array(X_train_aug, dtype=np.float32)
+y_train_aug = np.array(y_train_aug, dtype=np.int64)
 
-print(f"Original data size: {len(X_np)}")
-print(f"Augmented data size: {len(augmented_X_np)}")
-print(f"Augmentation factor: {len(augmented_X_np) / len(X_np):.2f}x")
+# Test set stays ORIGINAL — no augmentation
 
-# %% ==========================================================
-# STEP 9 : Split Features and Labels
-# ==========================================================
-X_train, X_test, y_train, y_test = train_test_split(
-    augmented_X_np, augmented_y_np,
-    test_size=0.2,
-    random_state=42,
-    stratify=augmented_y_np
-)
-
-print(f"\nTraining Samples: {len(X_train)}")
-print(f"Testing Samples: {len(X_test)}")
+print(f"\nFinal Training Samples: {len(X_train_aug)}")
+print(f"Final Test Samples:     {len(X_test)}")
+print(f"Augmentation Factor: {len(X_train_aug) / len(X_train):.2f}x")
 
 # %% ==========================================================
 # STEP 10 : Save the NumPy arrays
 # ==========================================================
+np.save(X_TRAIN, X_train_aug)       # augmented train
+np.save(X_TEST,  X_test)      # original test
+np.save(Y_TRAIN, y_train_aug)
+np.save(Y_TEST,  y_test)
 
-np.save(X_TRAIN, X_train)
-np.save(X_TEST, X_test)
-np.save(Y_TRAIN, y_train)
-np.save(Y_TEST, y_test)
-
-print("\nTraining & Testing Files Saved")
-
+print("\nraining & Testing Files Saved correctly (augmented train, original test)")
 # %% ==========================================================
 # STEP 12 : Summary
 # ==========================================================
@@ -231,7 +231,7 @@ print(f"Testing Samples: {len(X_test)}")
 print(f"Number of Classes: {len(encoder.classes_)}")
 
 # Print class distribution after augmentation
-unique, counts = np.unique(augmented_y_np, return_counts=True)
+unique, counts = np.unique(y_train_aug, return_counts=True)
 print("\nAugmented Class Distribution:")
 for class_idx, count in zip(unique, counts):
     class_name = encoder.inverse_transform([class_idx])[0]
