@@ -174,8 +174,7 @@ if not cap.isOpened():
 else :
     print("Webcam opened successfully.")
 
-print("\nPress 'Q' to quit")
-print("Press 'R' to reset smoothing")
+print("\nPress 'Q' to quit | Press 'R' to reset smoothing")
 print("="*60)
 
 # FPS calculation
@@ -208,6 +207,7 @@ while True:
         fps = fps_frame_count
         fps_frame_count = 0
         fps_start_time = time.time()
+        
     # ----------------------------------------------------------
     # Convert BGR → RGB
     # ----------------------------------------------------------
