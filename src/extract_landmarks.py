@@ -195,7 +195,7 @@ for gesture in tqdm(gesture_classes):
                 continue
 
 
-# ---------------------------------------------------
+            # ---------------------------------------------------
             # CORRECTED: Process with proper left/right handling
             # ---------------------------------------------------
             left_hand, right_hand = process_hands_correctly(
@@ -268,13 +268,13 @@ print("Dataset Shape: ",df.shape)
 # STEP 9 : Verify Hand Type Distribution
 # ==========================================================
 
-# Check hand type columns
-hand1_types = df['hand1_type'].value_counts()
-hand2_types = df['hand2_type'].value_counts()
+#  Check hand type columns
+# hand1_types = df['hand1_type'].value_counts()
+# hand2_types = df['hand2_type'].value_counts()
 
-print("\nHand Type Distribution:")
-print(f"Hand 1 (should be left): {hand1_types.to_dict()}")
-print(f"Hand 2 (should be right): {hand2_types.to_dict()}")
+# print("\nHand Type Distribution:")
+# print(f"Hand 1 (should be left): {hand1_types.to_dict()}")
+# print(f"Hand 2 (should be right): {hand2_types.to_dict()}")
 
 # %% ==========================================================
 # STEP 11 : Label Distribution
