@@ -45,7 +45,9 @@ isl-gesture-recognition/
 │   ├── train_model.py             # Train Random Forest with tuning & CV
 │   ├── realtime_prediction.py     # Real-time webcam prediction
 │
-├── datasets/                      # Raw gesture images (not uploaded)
+├── datasets/                      
+│   ├── static_gestures            # Raw gesture images (not uploaded)
+|
 ├── csv/                           # Extracted landmarks + npy files
 ├── models/                        # Trained model + label encoder
 ├── results/                       # Confusion matrix, reports
