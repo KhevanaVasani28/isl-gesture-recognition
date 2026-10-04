@@ -47,6 +47,14 @@ isl-gesture-recognition/
 │
 ├── datasets/                      
 │   ├── static_gestures            # Raw gesture images (not uploaded)
+|       ├── A/
+|       ├── B/
+|       ├── ...
+|       ├── Z/
+|       ├── 0/
+|       ├── 1/
+|       ├── ...
+|       └── 9/
 |
 ├── csv/                           # Extracted landmarks + npy files
 ├── models/                        # Trained model + label encoder
